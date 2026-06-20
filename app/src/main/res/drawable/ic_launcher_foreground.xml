@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Document / answer sheet -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,30 H64 a4,4 0 0 1 4,4 V74 a4,4 0 0 1 -4,4 H40 a4,4 0 0 1 -4,-4 V34 a4,4 0 0 1 4,-4 Z" />
+    <!-- Checkmark -->
+    <path
+        android:fillColor="#0D5CEB"
+        android:pathData="M44,52 l5,-5 l5,5 l11,-11 l5,5 l-16,16 Z" />
+</vector>
