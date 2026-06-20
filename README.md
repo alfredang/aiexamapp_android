@@ -4,6 +4,10 @@ Native **Kotlin + Jetpack Compose** client for Tertiary AI Exams mobile practice
 
 It talks to the same backend (`https://exams.tertiaryinfotech.com`) and mirrors every feature of the iOS client.
 
+<p>
+  <img src="screenshot.png" alt="AI Exams — About screen" width="280">
+</p>
+
 ## Scope
 
 - Register and sign in with email/password.
@@ -13,6 +17,8 @@ It talks to the same backend (`https://exams.tertiaryinfotech.com`) and mirrors 
 - Start purchased exams in **Practice** mode or **Exam** mode.
 - Save answers, reveal explanations in Practice mode, and submit for scoring.
 - Account management: open the website, sign out, delete account.
+- **About** tab with app, developer, and version info.
+- **Feedback** tab that opens WhatsApp (+65 8866 6375) for feature requests and bug reports.
 
 > Purchases, payments, invoices, and vouchers stay on the website. This app is for mobile practice only.
 
@@ -34,7 +40,7 @@ It talks to the same backend (`https://exams.tertiaryinfotech.com`) and mirrors 
 data/        ApiModels · ApiService (Retrofit) · ApiClient · SessionStore (DataStore)
 ui/          SessionViewModel · AppRoot (Scaffold + NavHost)
 ui/theme/    Brand palette ported from the iOS Theme
-ui/screens/  Auth · Catalog (+ detail) · Library · StartExam · ExamRunner · Account
+ui/screens/  Auth · Catalog (+ detail) · Library · StartExam · ExamRunner · Account · Feedback · About
 ```
 
 The DTOs in `data/ApiModels.kt` match the `/api/mobile/*` JSON contract exactly, so the same backend serves both the iOS and Android apps.

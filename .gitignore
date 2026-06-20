@@ -17,3 +17,5 @@ build/
 /keystore.properties
 *.jks
 *.keystore
+
+.playwright-mcp/

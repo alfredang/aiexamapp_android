@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ListAlt
+import androidx.compose.material.icons.filled.Forum
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -27,10 +29,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.tertiaryinfotech.aiexams.data.CatalogBundle
+import com.tertiaryinfotech.aiexams.ui.screens.AboutScreen
 import com.tertiaryinfotech.aiexams.ui.screens.AccountScreen
 import com.tertiaryinfotech.aiexams.ui.screens.CatalogDetailScreen
 import com.tertiaryinfotech.aiexams.ui.screens.CatalogScreen
 import com.tertiaryinfotech.aiexams.ui.screens.ExamRunnerScreen
+import com.tertiaryinfotech.aiexams.ui.screens.FeedbackScreen
 import com.tertiaryinfotech.aiexams.ui.screens.LibraryScreen
 import com.tertiaryinfotech.aiexams.ui.screens.StartExamArgs
 import com.tertiaryinfotech.aiexams.ui.screens.StartExamScreen
@@ -39,9 +43,11 @@ private sealed class Tab(val route: String, val label: String, val icon: ImageVe
     data object Library : Tab("library", "My Exams", Icons.AutoMirrored.Filled.ListAlt)
     data object Catalog : Tab("catalog", "Catalog", Icons.Filled.Search)
     data object Account : Tab("account", "Account", Icons.Filled.Person)
+    data object Feedback : Tab("feedback", "Feedback", Icons.Filled.Forum)
+    data object About : Tab("about", "About", Icons.Filled.Info)
 }
 
-private val tabs = listOf(Tab.Library, Tab.Catalog, Tab.Account)
+private val tabs = listOf(Tab.Library, Tab.Catalog, Tab.Account, Tab.Feedback, Tab.About)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,6 +65,8 @@ fun AppRoot(session: SessionViewModel) {
         Tab.Library.route -> "My Exams"
         Tab.Catalog.route -> "Catalog"
         Tab.Account.route -> "Account"
+        Tab.Feedback.route -> "Feedback"
+        Tab.About.route -> "About"
         "catalog_detail" -> selectedBundle?.code ?: "Bundle"
         "start_exam" -> startArgs?.code ?: "Exam"
         else -> "AI Exams"
@@ -107,6 +115,8 @@ fun AppRoot(session: SessionViewModel) {
                 }
             }
             composable(Tab.Account.route) { AccountScreen(session) }
+            composable(Tab.Feedback.route) { FeedbackScreen() }
+            composable(Tab.About.route) { AboutScreen() }
 
             composable("catalog_detail") {
                 selectedBundle?.let { bundle ->
